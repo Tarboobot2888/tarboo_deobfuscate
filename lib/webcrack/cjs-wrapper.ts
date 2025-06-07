@@ -1,6 +1,6 @@
-import type { webcrack as wc } from '../serverOnly/webcrack-server';
+import type { webcrack as wc } from './index.js';
 
 export const webcrack: typeof wc = async (...args) => {
-  const { webcrack } = await import('../serverOnly/webcrack-server');
+  const { webcrack } = await import('./index.js');
   return webcrack(...args);
 };

@@ -13,8 +13,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
-    const { webcrack } = await import('../../lib/serverOnly/webcrack-server');
-    const { code: result } = await webcrack(code);
+    const webcrack = await import('../../lib/serverOnly/webcrack-server');
+    const result = await webcrack.default(code); // assuming default export is deobfuscate function
     res.status(200).json({ result });
   } catch (err: any) {
     console.error('Deobfuscation error:', err);

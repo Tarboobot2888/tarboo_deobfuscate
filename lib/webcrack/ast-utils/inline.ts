@@ -3,7 +3,7 @@ import traverse from '@babel/traverse';
 import * as t from '@babel/types';
 import * as m from '@codemod/matchers';
 import { getPropName } from '.';
-import { findParent } from './matcher';
+import { findParent } from './ast-utils/matcher';
 
 /**
  * Replace all references of a variable with the initializer.

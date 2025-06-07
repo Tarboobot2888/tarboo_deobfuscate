@@ -1,1 +1,1 @@
-export * from '../serverOnly/webcrack-server';
+// Moved to serverOnly/webcrack-server.ts to avoid `fs` usage in frontend

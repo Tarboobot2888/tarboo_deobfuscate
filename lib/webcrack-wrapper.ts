@@ -12,8 +12,8 @@ if (typeof window === 'undefined') {
 
 import { parse } from '@babel/parser';
 import generate from '@babel/generator';
-import deobfuscate from './serverOnly/webcrack-server';
-import { createNodeSandbox } from './webcrack/deobfuscate/vm';
+import deobfuscate from '../webcrack';
+import { createNodeSandbox } from '../webcrack/deobfuscate/vm';
 
 type TransformState = {
   changes: number;
