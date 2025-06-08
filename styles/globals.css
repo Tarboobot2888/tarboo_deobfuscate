@@ -1,10 +1,10 @@
 /* globals.css */
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 body {
-  background-color: #0f0f1a;
-  color: #33ffcc;
-  font-family: 'Share Tech Mono', monospace, monospace;
+  background: #f4f4f4;
+  color: #333;
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
   min-height: 100vh;
@@ -14,20 +14,20 @@ body {
 }
 
 .container {
-  max-width: 900px;
+  max-width: 800px;
   width: 90%;
-  margin: 20px auto;
-  background: #111122;
-  border: 1px solid #33ffcc;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 0 15px #33ffcc;
+  margin: 40px auto;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 h1 {
   text-align: center;
   margin-bottom: 20px;
-  text-shadow: 0 0 10px #00ffcc;
+  color: #222;
 }
 
 nav {
@@ -36,7 +36,7 @@ nav {
 }
 
 nav a {
-  color: #00ffcc;
+  color: #005cc5;
   text-decoration: none;
   font-weight: bold;
   margin: 0 15px;
@@ -44,15 +44,15 @@ nav a {
 }
 
 nav a:hover {
-  color: #66ffff;
+  color: #003d80;
 }
 
 .code-input, .code-output, pre {
-  background: #0a0a12;
-  border: 1px solid #33ffcc;
-  border-radius: 5px;
-  color: #33ffcc;
-  font-family: 'Share Tech Mono', monospace;
+  background: #fafafa;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #222;
+  font-family: 'Roboto', monospace;
   padding: 15px;
   white-space: pre-wrap;
   word-break: break-word;
@@ -64,51 +64,46 @@ nav a:hover {
   resize: vertical;
 }
 
-.method-select {
+.method-info {
   margin-bottom: 20px;
-  display: flex;
-  gap: 30px;
-}
-
-.method-select label {
-  cursor: pointer;
-  user-select: none;
+  font-weight: bold;
+  text-align: center;
 }
 
 button {
-  background: #33ffcc;
+  background: #005cc5;
   border: none;
-  color: #000;
+  color: #fff;
   padding: 12px 25px;
   font-weight: bold;
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: 6px;
   font-size: 16px;
   transition: background 0.3s ease;
   width: 100%;
 }
 
 button:disabled {
-  background: #33ffcc99;
+  background: #8fb9f2;
   cursor: not-allowed;
 }
 
 button:hover:not(:disabled) {
-  background: #00ccaa;
+  background: #004b9f;
 }
 
 .error {
-  color: #ff4444;
+  color: #cc0000;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
 .history-item {
-  border: 1px solid #33ffcc;
+  border: 1px solid #ddd;
   border-radius: 8px;
   padding: 15px;
   margin-bottom: 15px;
-  background: #121225;
+  background: #fdfdfd;
 }
 
 .history-item details summary {
@@ -119,11 +114,11 @@ button:hover:not(:disabled) {
 }
 
 .clear-btn {
-  background: #ff4444;
+  background: #cc0000;
   color: #fff;
   margin-top: 20px;
 }
 
 .clear-btn:hover {
-  background: #cc0000;
+  background: #a00000;
 }
