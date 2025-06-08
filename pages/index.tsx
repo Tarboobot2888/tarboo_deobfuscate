@@ -150,6 +150,7 @@ export default function Home() {
           {error && <p className="error">{error}</p>}
         </div>
       </motion.section>
+      <p className="privacy">كل المعالجة تتم محليًا في المتصفح ولا يتم رفع الكود للخادم.</p>
     </main>
   );
 }
