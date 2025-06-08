@@ -8,7 +8,6 @@ export default function Home() {
   const [code, setCode] = useState("");
   const [output, setOutput] = useState("");
   const [loading, setLoading] = useState(false);
-  const [method, setMethod] = useState<"local" | "openai">("local");
   const [error, setError] = useState<string | null>(null);
 
   // سجل الاستخدام في localStorage
@@ -17,7 +16,7 @@ export default function Home() {
       const history = JSON.parse(localStorage.getItem("history") || "[]");
       localStorage.setItem(
         "history",
-        JSON.stringify([{ input: code, output, method, timestamp: Date.now() }, ...history].slice(0, 30))
+        JSON.stringify([{ input: code, output, method: "local", timestamp: Date.now() }, ...history].slice(0, 30))
       );
     }
   }, [output]);
@@ -27,13 +26,8 @@ export default function Home() {
   setOutput("");
   setLoading(true);
   try {
-    if (method === "local") {
-      const response = await axios.post("/api/deobfuscate-local", { code });
-      setOutput(response.data.decoded);
-    } else {
-      const response = await axios.post("/api/openai-decode", { code });
-      setOutput(response.data.decoded);
-    }
+    const response = await axios.post("/api/deobfuscate-local", { code });
+    setOutput(response.data.decoded);
   } catch (e: any) {
     setError(e.message || "حدث خطأ أثناء فك التشفير");
   }
@@ -59,24 +53,7 @@ export default function Home() {
           placeholder="أدخل كود Node.js المشفر أو المشوش"
         />
 
-        <div className="method-select">
-          <label>
-            <input
-              type="radio"
-              checked={method === "local"}
-              onChange={() => setMethod("local")}
-            />
-            فك تشفير محلي (سريع، بدون إنترنت)
-          </label>
-          <label>
-            <input
-              type="radio"
-              checked={method === "openai"}
-              onChange={() => setMethod("openai")}
-            />
-            فك تشفير OpenAI (أكثر دقة، يحتاج إنترنت)
-          </label>
-        </div>
+
 
         <button onClick={handleDecode} disabled={loading || !code.trim()}>
           {loading ? "جاري فك التشفير..." : "فك التشفير"}
