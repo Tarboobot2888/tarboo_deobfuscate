@@ -1,10 +1,10 @@
 /* globals.css */
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 body {
-  background-color: #0f0f1a;
-  color: #33ffcc;
-  font-family: 'Share Tech Mono', monospace, monospace;
+  background-color: #f5f7fa;
+  color: #222;
+  font-family: 'Inter', sans-serif;
   margin: 0;
   padding: 0;
   min-height: 100vh;
@@ -17,17 +17,16 @@ body {
   max-width: 900px;
   width: 90%;
   margin: 20px auto;
-  background: #111122;
-  border: 1px solid #33ffcc;
+  background: #ffffff;
+  border: 1px solid #ddd;
   border-radius: 10px;
   padding: 20px;
-  box-shadow: 0 0 15px #33ffcc;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 h1 {
   text-align: center;
   margin-bottom: 20px;
-  text-shadow: 0 0 10px #00ffcc;
 }
 
 nav {
@@ -36,7 +35,7 @@ nav {
 }
 
 nav a {
-  color: #00ffcc;
+  color: #0070f3;
   text-decoration: none;
   font-weight: bold;
   margin: 0 15px;
@@ -44,15 +43,15 @@ nav a {
 }
 
 nav a:hover {
-  color: #66ffff;
+  color: #0366d6;
 }
 
 .code-input, .code-output, pre {
-  background: #0a0a12;
-  border: 1px solid #33ffcc;
+  background: #f0f0f0;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  color: #33ffcc;
-  font-family: 'Share Tech Mono', monospace;
+  color: #222;
+  font-family: 'Inter', monospace;
   padding: 15px;
   white-space: pre-wrap;
   word-break: break-word;
@@ -64,21 +63,12 @@ nav a:hover {
   resize: vertical;
 }
 
-.method-select {
-  margin-bottom: 20px;
-  display: flex;
-  gap: 30px;
-}
 
-.method-select label {
-  cursor: pointer;
-  user-select: none;
-}
 
 button {
-  background: #33ffcc;
+  background: #0070f3;
   border: none;
-  color: #000;
+  color: #fff;
   padding: 12px 25px;
   font-weight: bold;
   cursor: pointer;
@@ -89,26 +79,26 @@ button {
 }
 
 button:disabled {
-  background: #33ffcc99;
+  background: #bbb;
   cursor: not-allowed;
 }
 
 button:hover:not(:disabled) {
-  background: #00ccaa;
+  background: #0056d2;
 }
 
 .error {
-  color: #ff4444;
+  color: #d32f2f;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
 .history-item {
-  border: 1px solid #33ffcc;
+  border: 1px solid #ddd;
   border-radius: 8px;
   padding: 15px;
   margin-bottom: 15px;
-  background: #121225;
+  background: #fafafa;
 }
 
 .history-item details summary {
@@ -119,11 +109,11 @@ button:hover:not(:disabled) {
 }
 
 .clear-btn {
-  background: #ff4444;
+  background: #d32f2f;
   color: #fff;
   margin-top: 20px;
 }
 
 .clear-btn:hover {
-  background: #cc0000;
+  background: #9a0007;
 }

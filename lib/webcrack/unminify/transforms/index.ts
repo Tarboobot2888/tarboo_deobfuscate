@@ -17,6 +17,6 @@ export { default as ternaryToIf } from './ternary-to-if';
 export { default as truncateNumberLiteral } from './truncate-number-literal';
 export { default as typeofUndefined } from './typeof-undefined';
 export { default as unaryExpressions } from './unary-expressions';
-export { default as unminifyBooleans } from '../webcrack/unminify-booleans';
+export { default as unminifyBooleans } from './unminify-booleans';
 export { default as voidToUndefined } from './void-to-undefined';
 export { default as yoda } from './yoda';
