@@ -1,6 +1,6 @@
 # TARBOO Deobfuscate
 
-مشروع لفك تشفير أكواد Node.js المشفرة باستخدام خوارزميات WebCrack محليًا و OpenAI API.
+مشروع لفك تشفير أكواد Node.js المشفرة باستخدام خوارزميات WebCrack محليًا.
 
 ## كيفية التشغيل محليًا
 
@@ -10,13 +10,7 @@
 npm install
 ```
 
-2. أنشئ ملف `.env.local` في جذر المشروع وضع فيه مفتاح OpenAI API:
-
-```
-OPENAI_API_KEY=your_openai_api_key_here
-```
-
-3. شغل المشروع:
+2. شغل المشروع:
 
 ```
 npm run dev
@@ -27,12 +21,7 @@ npm run dev
 ## النشر على Vercel
 
 - اربط المستودع بـ Vercel.
-- أضف متغير البيئة `openai_api_key` في إعدادات المشروع في Vercel.
 - اضغط Deploy.
-
----
-
-تأكد من عدم رفع ملف `.env.local` إلى أي مستودع عام للحفاظ على أمان المفتاح.
 
 ## أدوات إضافية
 
