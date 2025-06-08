@@ -2,7 +2,7 @@ import type { Binding, NodePath } from '@babel/traverse';
 import traverse from '@babel/traverse';
 import * as t from '@babel/types';
 import * as m from '@codemod/matchers';
-import { codePreview } from './ast-utils/generator';
+import { codePreview } from './generator';
 
 export function renameFast(binding: Binding, newName: string): void {
   binding.referencePaths.forEach((ref) => {

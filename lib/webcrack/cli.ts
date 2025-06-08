@@ -6,7 +6,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { readFile, rm } from 'node:fs/promises';
 import { join } from 'node:path';
 import * as url from 'node:url';
-import { webcrack } from './index.js';
+import { webcrack } from '../serverOnly/webcrack-server';
 
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 const { version, description } = JSON.parse(
