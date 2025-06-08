@@ -21,7 +21,8 @@
     "next": "^15.3.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "vm2": "^3.9.17"
+    "vm2": "^3.9.17",
+    "prettier": "^3.2.5"
   },
   "devDependencies": {
     "@types/babel__generator": "^7.6.7",
