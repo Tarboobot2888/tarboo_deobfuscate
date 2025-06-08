@@ -1,18 +1,18 @@
 /* globals.css */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Fira+Code:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;600&display=swap");
 
 :root {
-  --bg: #f4f4f4;
-  --text: #333;
-  --primary: #005cc5;
-  --surface: #fff;
+  --bg: #111827;
+  --text: #e5e7eb;
+  --primary: #00ff9a;
+  --surface: #1e293b;
 }
 
 body.dark {
-  --bg: #1e1e1e;
-  --text: #eee;
-  --primary: #0af;
-  --surface: #2b2b2b;
+  --bg: #0f172a;
+  --text: #d1d5db;
+  --primary: #14ffbf;
+  --surface: #162033;
 }
 
 body {
@@ -68,7 +68,7 @@ pre {
   border: 1px solid #ccc;
   border-radius: 4px;
   color: var(--text);
-  font-family: "Fira Code", monospace;
+  font-family: "JetBrains Mono", monospace;
   padding: 15px;
   white-space: pre-wrap;
   word-break: break-word;
@@ -178,4 +178,34 @@ button:hover:not(:disabled) {
   margin-top: 25px;
   font-size: 14px;
   opacity: 0.8;
+}
+
+.start-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  text-align: center;
+}
+
+.start-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 30px;
+  background: var(--primary);
+  color: #000;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.start-btn:hover {
+  background: #0fffb0;
+}
+
+.intro svg {
+  margin-bottom: 20px;
 }
