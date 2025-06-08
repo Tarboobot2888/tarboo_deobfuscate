@@ -180,6 +180,25 @@ button:hover:not(:disabled) {
   opacity: 0.8;
 }
 
+.diff-view {
+  margin-top: 20px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-family: "JetBrains Mono", monospace;
+}
+
 .start-page {
   display: flex;
   justify-content: center;

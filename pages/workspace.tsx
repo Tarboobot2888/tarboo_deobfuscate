@@ -8,6 +8,12 @@ import parserBabel from "prettier/plugins/babel";
 import { saveAs } from "file-saver";
 import { motion } from "framer-motion";
 import { useTheme } from "../components/ThemeContext";
+import JSZip from "jszip";
+
+const DiffViewer = dynamic(() => import("react-diff-viewer-continued"), {
+  ssr: false,
+});
+const Rnd = dynamic(() => import("react-rnd").then(mod => mod.Rnd), { ssr: false });
 
 const MonacoEditor = dynamic(() => import("@monaco-editor/react"), {
   ssr: false,
@@ -22,6 +28,8 @@ export default function Workspace() {
     orig: { lines: 0, vars: 0, funcs: 0 },
     deob: { lines: 0, vars: 0, funcs: 0 },
   });
+  const [showDiff, setShowDiff] = useState(false);
+  const [obfuscation, setObfuscation] = useState({ eval: false, atob: false });
   const { theme, toggle } = useTheme();
 
   // سجل الاستخدام في localStorage
@@ -49,6 +57,10 @@ export default function Workspace() {
       };
     }
     setAnalysis({ orig: analyze(code), deob: analyze(output) });
+    setObfuscation({
+      eval: /\beval\b/.test(code),
+      atob: /\batob\b/.test(code),
+    });
   }, [code, output]);
 
   async function handleDecode() {
@@ -87,6 +99,23 @@ export default function Workspace() {
     saveAs(blob, "deobfuscated.js");
   }
 
+  function copyWithComments() {
+    const annotated = output
+      .split("\n")
+      .map((line, i) => `// سطر ${i + 1}\n${line}`)
+      .join("\n");
+    navigator.clipboard.writeText(annotated);
+  }
+
+  async function exportZip() {
+    const zip = new JSZip();
+    zip.file("original.js", code);
+    zip.file("decrypted.js", output);
+    zip.file("analysis.json", JSON.stringify({ analysis, obfuscation }, null, 2));
+    const blob = await zip.generateAsync({ type: "blob" });
+    saveAs(blob, "session.zip");
+  }
+
   return (
     <main
       className="container"
@@ -110,7 +139,11 @@ export default function Workspace() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
       >
-        <div className="column">
+        <Rnd
+          default={{ x: 0, y: 0, width: 350, height: 400 }}
+          className="column"
+          style={{ padding: 0 }}
+        >
           <h2>الكود الأصلي</h2>
           <MonacoEditor
             language="javascript"
@@ -119,9 +152,13 @@ export default function Workspace() {
             options={{ minimap: { enabled: false } }}
           />
           <button onClick={beautify}>تنظيف الكود</button>
-        </div>
+        </Rnd>
 
-        <div className="column">
+        <Rnd
+          default={{ x: 0, y: 0, width: 350, height: 400 }}
+          className="column"
+          style={{ padding: 0 }}
+        >
           <h2>بعد الفك</h2>
           <MonacoEditor
             language="javascript"
@@ -131,9 +168,22 @@ export default function Workspace() {
           <button onClick={download} disabled={!output}>
             تحميل الناتج
           </button>
-        </div>
+          <button onClick={copyWithComments} disabled={!output}>
+            نسخ مع شرح
+          </button>
+          <button onClick={() => setShowDiff((v) => !v)} disabled={!output}>
+            مقارنة الكود
+          </button>
+          <button onClick={exportZip} disabled={!output}>
+            حفظ كـ Zip
+          </button>
+        </Rnd>
 
-        <div className="column analysis">
+        <Rnd
+          default={{ x: 0, y: 0, width: 300, height: 400 }}
+          className="column analysis"
+          style={{ padding: 0 }}
+        >
           <h2>التحليل</h2>
           <ul>
             <li>
@@ -145,13 +195,20 @@ export default function Workspace() {
             <li>
               الدوال: {analysis.orig.funcs} → {analysis.deob.funcs}
             </li>
+            {obfuscation.eval && <li>الكود يستخدم eval</li>}
+            {obfuscation.atob && <li>الكود يستخدم atob</li>}
           </ul>
           <button onClick={handleDecode} disabled={loading || !code.trim()}>
             {loading ? "جاري الفك..." : "فك التشفير"}
           </button>
           {error && <p className="error">{error}</p>}
-        </div>
+        </Rnd>
       </motion.section>
+      {showDiff && (
+        <div className="diff-view">
+          <DiffViewer oldValue={code} newValue={output} splitView={true} />
+        </div>
+      )}
       <p className="privacy">كل المعالجة تتم محليًا في المتصفح ولا يتم رفع الكود للخادم.</p>
     </main>
   );
