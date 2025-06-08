@@ -1,6 +1,9 @@
 # TARBOO Deobfuscate
 
-مشروع لفك تشفير أكواد Node.js المشفرة باستخدام خوارزميات WebCrack محليًا و OpenAI API.
+مشروع لفك تشفير أكواد Node.js المشفرة باستخدام خوارزميات WebCrack محليًا.
+
+يتميز الإصدار الجديد بواجهة حديثة مع دعم الوضعين المظلم والفاتح، واستخدام محرر
+Monaco لكتابة الكود مع عرض التحليل المباشر لعدد الأسطر والمتغيرات والدوال.
 
 ## كيفية التشغيل محليًا
 
@@ -10,13 +13,7 @@
 npm install
 ```
 
-2. أنشئ ملف `.env.local` في جذر المشروع وضع فيه مفتاح OpenAI API:
-
-```
-OPENAI_API_KEY=your_openai_api_key_here
-```
-
-3. شغل المشروع:
+2. شغل المشروع:
 
 ```
 npm run dev
@@ -24,19 +21,16 @@ npm run dev
 
 ثم افتح المتصفح على `http://localhost:3000`
 
+> **تنبيه**: كل المعالجة تتم محليًا في المتصفح ولا يتم رفع الكود إلى أي خادم.
+
 ## النشر على Vercel
 
 - اربط المستودع بـ Vercel.
-- أضف متغير البيئة `openai_api_key` في إعدادات المشروع في Vercel.
 - اضغط Deploy.
-
----
-
-تأكد من عدم رفع ملف `.env.local` إلى أي مستودع عام للحفاظ على أمان المفتاح.
 
 ## أدوات إضافية
 
-يحتوي المجلد `scripts` على سكربت `api_deobfuscator.lua` المقتبس من [api-deobfuscator](https://github.com/push0ebp/api-deobfuscator). هذا السكربت مخصص لاستخدامه مع برنامج **Cheat Engine** لفك تشفير توجيه API في البرامج المحمية بـ *Themida*.
+يحتوي المجلد `scripts` على سكربت `api_deobfuscator.lua` المقتبس من [api-deobfuscator](https://github.com/push0ebp/api-deobfuscator). هذا السكربت مخصص لاستخدامه مع برنامج **Cheat Engine** لفك تشفير توجيه API في البرامج المحمية بـ _Themida_.
 
 لتشغيله:
 
