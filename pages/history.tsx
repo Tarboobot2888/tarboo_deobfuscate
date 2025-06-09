@@ -1,6 +1,5 @@
 // pages/history.tsx
 import { useEffect, useState } from "react";
-import Link from "next/link";
 
 interface HistoryItem {
   input: string;
@@ -25,15 +24,9 @@ export default function History() {
   }
 
   return (
-    <main className="container">
-      <header>
-        <h1>سجل الاستخدام</h1>
-        <nav>
-          <Link href="/">العودة لفك التشفير</Link>
-        </nav>
-      </header>
-
-      <section>
+    <div className="space-y-4">
+      <h1 className="font-poppins text-2xl font-bold">سجل الاستخدام</h1>
+      <div>
         {history.length === 0 && <p>لا توجد سجلات حتى الآن.</p>}
 
         {history.map((item, idx) => (
@@ -52,11 +45,11 @@ export default function History() {
         ))}
 
         {history.length > 0 && (
-          <button onClick={clearHistory} className="clear-btn">
+          <button onClick={clearHistory} className="bg-red-600 text-white px-3 py-1 rounded-md">
             مسح السجل
           </button>
         )}
-      </section>
-    </main>
+      </div>
+    </div>
   );
 }
