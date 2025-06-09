@@ -1,5 +1,6 @@
 
-import type { NextApiRequest, NextApiResponse } from 'next';
+import type { NextApiRequest, NextApiResponse } from 'next'
+import { deobfuscateLocal } from '../../lib/deobfuscators/deobfuscateLocal'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
@@ -13,11 +14,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
-    const { webcrack } = await import('../../lib/serverOnly/webcrack-server');
-    const { code: result } = await webcrack(code);
-    res.status(200).json({ result });
+    const result = deobfuscateLocal(code)
+    res.status(200).json({ result })
   } catch (err: any) {
-    console.error('Deobfuscation error:', err);
-    res.status(500).json({ error: 'Failed to deobfuscate code' });
+    console.error('Deobfuscation error:', err)
+    res.status(500).json({ error: 'Failed to deobfuscate code' })
   }
 }
