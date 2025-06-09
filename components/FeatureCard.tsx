@@ -10,7 +10,7 @@ interface Props {
 export default function FeatureCard({ title, desc, icon }: Props) {
   return (
     <motion.div
-      className="rounded-2xl p-6 bg-background/80 backdrop-blur shadow-xl hover:scale-105 transition-transform cursor-pointer"
+      className="rounded-2xl p-6 bg-background/80 backdrop-blur shadow-xl hover:scale-105 transition-transform cursor-pointer w-full feature-item"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}

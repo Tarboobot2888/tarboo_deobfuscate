@@ -8,10 +8,12 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <section className="grid md:grid-cols-2 gap-6 py-12">
-      {features.map(f => (
-        <FeatureCard key={f.title} {...f} />
-      ))}
+    <section className="py-12">
+      <div className="container grid gap-6 md:grid-cols-2">
+        {features.map(f => (
+          <FeatureCard key={f.title} {...f} />
+        ))}
+      </div>
     </section>
   )
 }

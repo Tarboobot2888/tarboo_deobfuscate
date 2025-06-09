@@ -10,7 +10,7 @@ export default function Layout({ children }: Props) {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <header className="backdrop-blur bg-background/60 sticky top-0 z-10 shadow">
-        <div className="container mx-auto flex justify-between items-center py-4 px-6">
+        <div className="container flex flex-col md:flex-row justify-between items-center gap-4">
           <Link href="/" className="font-heading text-2xl text-primary">TARBOO</Link>
           <nav className="flex gap-6 items-center text-text-main">
             <Link href="/" className="hover:text-primary">الرئيسية</Link>
@@ -22,16 +22,18 @@ export default function Layout({ children }: Props) {
         </div>
         <p className="text-center text-sm text-text-main mt-2">كل شيفرة تُفك هنا… تكتب لنفسها حياة جديدة.</p>
       </header>
-      <main className="flex-1 container mx-auto p-6 space-y-10">
+      <main className="flex-1 container flex flex-col space-y-10 p-6">
         {children}
         <DevCard />
       </main>
-      <footer className="bg-background/80 backdrop-blur text-text-main p-4 text-center space-y-3">
-        <div className="flex justify-center gap-4">
-          <a href="https://github.com" aria-label="GitHub" className="hover:text-primary"><Github size={20} /></a>
-          <a href="https://twitter.com" aria-label="Twitter" className="hover:text-primary"><Twitter size={20} /></a>
+      <footer className="bg-background/80 backdrop-blur text-text-main p-4">
+        <div className="container flex flex-col md:flex-row justify-between items-center gap-4">
+          <p>© {new Date().getFullYear()} TARBOO</p>
+          <div className="flex gap-4">
+            <a href="https://github.com" aria-label="GitHub" className="hover:text-primary"><Github size={20} /></a>
+            <a href="https://twitter.com" aria-label="Twitter" className="hover:text-primary"><Twitter size={20} /></a>
+          </div>
         </div>
-        <p>© {new Date().getFullYear()} TARBOO</p>
       </footer>
     </div>
   )

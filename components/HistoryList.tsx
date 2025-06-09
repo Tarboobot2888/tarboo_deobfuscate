@@ -17,11 +17,11 @@ export default function HistoryList() {
   }, [])
 
   return (
-    <div className="space-y-4">
+    <div className="container flex flex-col space-y-4">
       {history.map((h, i) => (
         <motion.div
           key={i}
-          className="p-4 rounded-2xl bg-background/80 backdrop-blur shadow"
+          className="p-4 rounded-2xl bg-background/80 backdrop-blur shadow w-full"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
         >

@@ -10,7 +10,7 @@ interface Props {
 export default function AlgorithmCard({ name, desc, children }: Props) {
   return (
     <motion.div
-      className="p-4 bg-background/80 backdrop-blur rounded-2xl shadow hover:scale-105 transition-transform"
+      className="p-4 bg-background/80 backdrop-blur rounded-2xl shadow hover:scale-105 transition-transform w-full"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}

@@ -14,7 +14,7 @@ export default function Algorithms() {
         <title>الخوارزميات - TARBOO</title>
         <meta name="description" content="مكتبة الخوارزميات" />
       </Head>
-      <div className="grid md:grid-cols-3 gap-6 py-8">
+      <div className="container grid gap-6 md:grid-cols-3 py-8">
         {algorithms.map(a => (
           <AlgorithmCard key={a.name} name={a.name} desc={a.desc} />
         ))}

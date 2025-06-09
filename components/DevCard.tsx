@@ -5,7 +5,7 @@ export default function DevCard() {
   return (
     <motion.div
       whileHover={{ scale: 1.02 }}
-      className="bg-background/80 backdrop-blur rounded-2xl shadow-lg p-4 flex flex-col items-center gap-2"
+      className="bg-background/80 backdrop-blur rounded-2xl shadow-lg p-4 flex flex-col items-center gap-2 w-full"
     >
       <img src="/avatar.png" alt="developer" className="w-20 h-20 rounded-full" />
       <h3 className="font-heading text-xl text-primary">Tarboo Dev</h3>

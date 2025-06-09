@@ -10,7 +10,7 @@ export default function FAQAccordion() {
   const [open, setOpen] = useState<number | null>(null)
 
   return (
-    <div className="space-y-3">
+    <div className="container flex flex-col space-y-3">
       {faqs.map((f, idx) => (
         <div key={idx} className="bg-background/70 rounded-2xl p-4">
           <button

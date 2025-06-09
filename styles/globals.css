@@ -50,4 +50,29 @@
 
 body {
   @apply bg-background text-text-main font-sans min-h-screen antialiased;
+  overflow-y: auto;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 1rem;
+  margin: auto;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .code-input,
+  .code-output {
+    font-size: 0.85rem;
+    min-height: 200px;
+  }
+
+  .feature-item {
+    flex: 1 1 100%;
+    margin-bottom: 1rem;
+  }
 }

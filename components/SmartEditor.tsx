@@ -3,6 +3,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import { motion } from 'framer-motion'
 import { javascript } from '@codemirror/lang-javascript'
+import { EditorView } from '@codemirror/view'
 import toast from 'react-hot-toast'
 import { useTheme } from '../context/ThemeContext'
 import { themes } from '../styles/themes'
@@ -23,13 +24,14 @@ export default function SmartEditor() {
   }
 
   return (
-    <div className="space-y-4">
+    <div className="container flex flex-col space-y-4">
       <CodeMirror
         value={code}
         height="200px"
         theme={themes[theme].editor}
-        extensions={[javascript()]}
+        extensions={[javascript(), EditorView.lineWrapping]}
         onChange={v => setCode(v)}
+        style={{ width: '100%' }}
       />
       <motion.button
         whileTap={{ scale: 0.95 }}
@@ -58,8 +60,9 @@ export default function SmartEditor() {
             value={result}
             height="200px"
             theme={themes[theme].editor}
-            extensions={[javascript()]}
+            extensions={[javascript(), EditorView.lineWrapping]}
             readOnly
+            style={{ width: '100%' }}
           />
         </motion.div>
       )}
