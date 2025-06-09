@@ -4,6 +4,50 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Poppins:wght@700&display=swap');
 
+:root {
+  --bg: #101828;
+  --primary: #00E1FF;
+  --accent: #FE38A7;
+  --secondary: #14FF84;
+  --text: #F1F5F9;
+}
+
+[data-theme='light'] {
+  --bg: #ffffff;
+  --primary: #0ea5e9;
+  --accent: #ec4899;
+  --secondary: #14b8a6;
+  --text: #111827;
+}
+[data-theme='darkclassic'] {
+  --bg: #0f172a;
+  --primary: #38bdf8;
+  --accent: #f472b6;
+  --secondary: #475569;
+  --text: #e2e8f0;
+}
+[data-theme='neumorphic'] {
+  --bg: #e0e0e0;
+  --primary: #6c63ff;
+  --accent: #ff6584;
+  --secondary: #a1a1aa;
+  --text: #333333;
+}
+[data-theme='minimal'] {
+  --bg: #f5f5f5;
+  --primary: #0f172a;
+  --accent: #a855f7;
+  --secondary: #64748b;
+  --text: #111111;
+}
+[data-theme='retro'] {
+  --bg: #000000;
+  --primary: #00ff00;
+  --accent: #00ff00;
+  --secondary: #008f11;
+  --text: #00ff00;
+}
+
 body {
   @apply bg-background text-text-main font-sans min-h-screen antialiased;
 }

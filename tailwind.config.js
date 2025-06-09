@@ -7,11 +7,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: '#101828',
-        primary: '#00E1FF',
-        accent: '#FE38A7',
-        secondary: '#14FF84',
-        'text-main': '#F1F5F9',
+        background: 'var(--bg)',
+        primary: 'var(--primary)',
+        accent: 'var(--accent)',
+        secondary: 'var(--secondary)',
+        'text-main': 'var(--text)',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
@@ -21,4 +21,3 @@ module.exports = {
   },
   plugins: [],
 }
-
