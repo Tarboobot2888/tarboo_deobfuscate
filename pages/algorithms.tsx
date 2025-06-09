@@ -1,30 +1,24 @@
-const algos = [
-  {
-    name: 'Base64',
-    desc: 'تحويل النص المشفر بصيغة Base64 إلى نص عادي',
-  },
-  {
-    name: 'Eval Unpacker',
-    desc: 'فك شفرات eval(function(p,a,c,k,e,r)...',
-  },
-  {
-    name: 'Humanify',
-    desc: 'تنسيق الكود ليكون مقروءاً بشكل أفضل',
-  },
+import Head from 'next/head'
+import AlgorithmCard from '../components/AlgorithmCard'
+
+const algorithms = [
+  { name: 'Base64', desc: 'تحويل Base64 إلى نص عادي' },
+  { name: 'Eval Unpacker', desc: 'فك eval(function(p,a,c,k,e,r)...' },
+  { name: 'Humanify', desc: 'تنسيق الكود ليكون مقروءاً' },
 ]
 
 export default function Algorithms() {
   return (
-    <div className="grid md:grid-cols-3 gap-4">
-      {algos.map(a => (
-        <div key={a.name} className="border rounded-md p-4 space-y-2">
-          <h3 className="font-poppins font-bold text-lg">{a.name}</h3>
-          <p>{a.desc}</p>
-          <button className="bg-secondary text-black px-3 py-1 rounded-md">
-            تجريب سريع
-          </button>
-        </div>
-      ))}
-    </div>
+    <>
+      <Head>
+        <title>الخوارزميات - TARBOO</title>
+        <meta name="description" content="مكتبة الخوارزميات" />
+      </Head>
+      <div className="grid md:grid-cols-3 gap-6 py-8">
+        {algorithms.map(a => (
+          <AlgorithmCard key={a.name} name={a.name} desc={a.desc} />
+        ))}
+      </div>
+    </>
   )
 }
